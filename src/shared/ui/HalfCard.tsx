@@ -16,7 +16,7 @@ const HalfCard = ({ title, value, onPress }: IProps) => {
     <Card onPress={onPress}>
       <Title>{title}</Title>
       <ValueContainer>
-        <Value>{value}</Value>
+        <Value>{value} ₽</Value>
       </ValueContainer>
     </Card>
   );

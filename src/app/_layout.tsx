@@ -25,7 +25,7 @@ export default function RootLayout() {
           header: ({ options, back }) => Header({ options, back }),
         }}
       >
-        <Stack.Screen name="index" options={{ title: "Главная" }} />
+        <Stack.Screen name="Home" options={{ title: "Главная" }} />
       </Stack>
     </View>
   );

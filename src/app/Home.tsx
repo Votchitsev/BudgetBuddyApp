@@ -1,7 +1,10 @@
 import styled from "styled-components/native";
-import { colors } from "@shared/style";
-import { AccentButton, PageContentLayout } from "@shared/ui";
-import { HalfCardsContainer, HalfCard } from "@shared/ui";
+import {
+  PageContentLayout,
+  HalfCardsContainer,
+  HalfCard,
+  FullCard,
+} from "@shared/ui";
 
 export default function Index() {
   return (
@@ -10,6 +13,11 @@ export default function Index() {
         <HalfCard title="Бюджет" value="100 000" onPress={() => {}} />
         <HalfCard title="Расходы" value="45 000" onPress={() => {}} />
       </HalfCardsContainer>
+      <DailyExpFullCard title="Сегодня можно потратить" value="1 050" />
     </PageContentLayout>
   );
 }
+
+const DailyExpFullCard = styled(FullCard)`
+  margin-top: 20px;
+`;
