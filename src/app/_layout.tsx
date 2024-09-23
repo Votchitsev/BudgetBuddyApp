@@ -22,10 +22,19 @@ export default function RootLayout() {
     <View style={{ flex: 1, backgroundColor: colors.mainRGBA }}>
       <Stack
         screenOptions={{
-          header: ({ options, back }) => Header({ options, back }),
+          header: () => Header({ back: false }),
         }}
+        initialRouteName="index"
       >
-        <Stack.Screen name="Home" options={{ title: "Главная" }} />
+        <Stack.Screen name="index" options={{ title: "Главная" }} />
+        <Stack.Screen
+          name="budget"
+          options={{
+            title: "Бюджет",
+            headerBackButtonMenuEnabled: true,
+            header: () => Header({ back: true, previousPageName: "Главная" }),
+          }}
+        />
       </Stack>
     </View>
   );
