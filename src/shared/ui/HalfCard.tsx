@@ -1,5 +1,5 @@
-import { colors } from "@shared/style";
 import { Dimensions } from "react-native";
+import { colors } from "@shared/style";
 import styled from "styled-components/native";
 
 interface IProps {

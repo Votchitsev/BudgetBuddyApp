@@ -7,6 +7,9 @@ import {
   JosefinSans_400Regular,
   JosefinSans_700Bold,
 } from "@expo-google-fonts/josefin-sans";
+import { RootModal } from "@shared/ui";
+import { useEffect, useState } from "react";
+import DBGenerator from "./model/DBGenerator";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -14,7 +17,15 @@ export default function RootLayout() {
     JosefinSans_700Bold,
   });
 
-  if (!fontsLoaded) {
+  const [dbInitialized, setDbInitialized] = useState(false);
+
+  useEffect(() => {
+    DBGenerator.generate()
+      .then(() => setDbInitialized(true))
+      .catch((err) => console.log(err));
+  }, []);
+
+  if (!fontsLoaded || !dbInitialized) {
     return null;
   }
 
@@ -36,6 +47,7 @@ export default function RootLayout() {
           }}
         />
       </Stack>
+      <RootModal />
     </View>
   );
 }

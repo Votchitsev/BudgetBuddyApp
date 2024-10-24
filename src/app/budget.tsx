@@ -1,12 +1,21 @@
+import { useModalStore } from "@shared/store";
 import { colors } from "@shared/style";
 import { PageContentLayout } from "@shared/ui";
 import { SimpleTable } from "@widgets/simple-table";
 import styled from "styled-components/native";
+import { NewIncomeForm } from "@features/add-income";
 
 const BudgetPage = () => {
+  const setModalContent = useModalStore((state) => state.setModalContent);
+
   return (
     <PageContentLayout>
-      <SimpleTable title="Доходы" />
+      <SimpleTable
+        title="Доходы"
+        buttonAction={() =>
+          setModalContent(<NewIncomeForm />, "Добавить доход")
+        }
+      />
       <SimpleTable title="Расходы" />
       <TotalRow>
         <TotalKey>Нераспределенные расходы</TotalKey>

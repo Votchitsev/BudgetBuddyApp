@@ -12,18 +12,20 @@ interface IProps {
   title: string;
   values?: ITableEntry[];
   emptyTableText?: string;
+  buttonAction?: () => void;
 }
 
 const SimpleTable = ({
   title,
   values = [],
   emptyTableText = "записей нет",
+  buttonAction = () => {},
 }: IProps) => {
   return (
     <Container>
       <Head>
         <Title>{title}</Title>
-        <AccentButton label="Добавить" />
+        <AccentButton label="Добавить" onPress={buttonAction} />
       </Head>
       <Body>
         {values.length ? (
